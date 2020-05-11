@@ -4,7 +4,7 @@ import { RecipeSearchPage } from './recipe-search';
 
 @NgModule({
   declarations: [
-    RecipeSearchPage,
+    // RecipeSearchPage,
   ],
   imports: [
     IonicPageModule.forChild(RecipeSearchPage),

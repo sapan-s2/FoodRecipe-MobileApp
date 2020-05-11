@@ -1,9 +1,9 @@
 import {Component, ViewChild} from "@angular/core";
 import {Platform, MenuController, Nav} from "ionic-angular";
-import {RecipeSearchPage} from "../pages/recipe-search/recipe-search";
+import {RecipeSearchPage} from "./pages/recipe-search/recipe-search";
 import {StatusBar} from "@ionic-native/status-bar";
 import {SplashScreen} from "@ionic-native/splash-screen";
-import {ListPage} from "../pages/list/list";
+import {ListPage} from "./pages/list/list";
 
 
 @Component({

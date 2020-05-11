@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {SearchRecipieProvider} from "../../providers/search-recipie/search-recipie";
-import {HttpClientModule} from "@angular/common/http";
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {HttpClient} from "@angular/common/http";
 
 /**
@@ -21,8 +19,7 @@ export class RecipeSearchPage {
   selectedValues: any[]=[];
   data: string;
   myInput: string = "hello";
-  searchRecipieProvider: SearchRecipieProvider
-  recipes: any[]= [];
+  recipes: any= [];
   ingeredeientName: any[]= [];
   url: string;
   ingredientAutoCompleteUrl: string;
@@ -30,7 +27,6 @@ export class RecipeSearchPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public httpClient: HttpClient) {
     // this.searchRecipieProvider = searchRecipieProvider;
-    this.searchRecipieProvider  = new SearchRecipieProvider();
     this.url = 'https://api.spoonacular.com/recipes/findByIngredients?apiKey=58ac03dd183446cfb4417107e519ef02&ingredients=';
     this.ingredientAutoCompleteUrl = 'https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=58ac03dd183446cfb4417107e519ef02&query=';
 
@@ -49,7 +45,7 @@ export class RecipeSearchPage {
 
   }
 
-  autoCompleteIngredients(ingredientElements: string) : [] {
+  autoCompleteIngredients(ingredientElements: string) : void {
     // ingredients.toString();
     let url1 : string;
     url1 = this.ingredientAutoCompleteUrl + ingredientElements;
@@ -57,7 +53,7 @@ export class RecipeSearchPage {
     this.httpClient.get(url1).subscribe((response) => {
 
       console.log(response);
-      this.ingeredeientName = response;
+      // this.ingeredeientName = response;
     });
 
   }
@@ -85,7 +81,7 @@ export class RecipeSearchPage {
 
   deleteSelected(dataDelete: string){
 
-    const indexForDelete = this.selectedValues.findIndex((i: IItem) => {
+    const indexForDelete = this.selectedValues.findIndex((i) => {
       return (i === dataDelete);
     });
     if (-1 != indexForDelete) {
@@ -97,16 +93,16 @@ export class RecipeSearchPage {
   }
 
   searchReceipies(){
-   if(this.selectedValues == "" || this.selectedValues == undefined || this.selectedValues == null){
+   if( this.selectedValues == undefined || this.selectedValues == null){
      this.message = "Please Add an Ingredient";
    }
    else{
      this.message= '';
-   this.recipes = this.findByIngredients(this.selectedValues);
+    this.findByIngredients(this.selectedValues);
    }
   }
 
-  findByIngredients(ingredients: []) : [] {
+  findByIngredients(ingredients: any) : void {
     // ingredients.toString();
     let url1 : string;
    url1 = this.url + this.selectedValues.toString();
