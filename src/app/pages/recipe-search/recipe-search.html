@@ -42,7 +42,7 @@
 
     <ion-searchbar  [(ngModel)]="myInput"  (ionInput)="filterList($event)"></ion-searchbar>
       <ul id="myUL">
-        <li  *ngFor="let inName of ingeredeientName" (click)="selectIngeredeientName(inName)"> {{inName.name}} </li>
+        <li  *ngFor="let inName of ingeredeientName" (click)="selectIngeredeientName(inName.name)"> {{inName.name}} </li>
 
       </ul>
     <button ion-button (click)="addCriteria()">

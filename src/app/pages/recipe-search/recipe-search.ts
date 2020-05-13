@@ -60,8 +60,8 @@ export class RecipeSearchPage {
   }
 
   selectIngeredeientName(inName: string){
-     this.myInput = inName.name;
-     this.data = inName.name;
+     this.myInput = inName;
+     this.data = inName;
       this.ingeredeientName = null;
   }
 
