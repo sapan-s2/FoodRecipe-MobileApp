@@ -24,7 +24,7 @@
   <div class="multiSelect">
     <label>Multiselect with custom ingredients</label>
     <p> {{message}}</p>
-    <ion-card  >
+    <ion-card *ngIf="selectedValues.length !== 0" >
       <ul>
       <!--<div class="row">-->
      <li class="fa fa-close" style="display: inline; cursor: pointer "
@@ -41,6 +41,10 @@
     <ion-toolbar color='primary'>
 
     <ion-searchbar  [(ngModel)]="myInput"  (ionInput)="filterList($event)"></ion-searchbar>
+      <ul id="myUL">
+        <li  *ngFor="let inName of ingeredeientName" (click)="selectIngeredeientName(inName)"> {{inName.name}} </li>
+
+      </ul>
     <button ion-button (click)="addCriteria()">
 
 
@@ -56,8 +60,8 @@
         Find Receipe  </button>
     </ion-card>
   </div>
-  <ion-card>
-    <p *ngFor="let r of recipes">
+  <ion-card *ngIf="selectedValues.length !== 0">
+    <p   *ngFor="let r of recipes">
       {{this.r.title}}
   </p></ion-card>
 </ion-content>

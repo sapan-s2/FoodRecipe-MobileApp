@@ -20,10 +20,11 @@ export class RecipeSearchPage {
   data: string;
   myInput: string = "hello";
   recipes: any= [];
-  ingeredeientName: any[]= [];
+  ingeredeientName: any= [];
   url: string;
   ingredientAutoCompleteUrl: string;
   message: string;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public httpClient: HttpClient) {
     // this.searchRecipieProvider = searchRecipieProvider;
@@ -53,9 +54,15 @@ export class RecipeSearchPage {
     this.httpClient.get(url1).subscribe((response) => {
 
       console.log(response);
-      // this.ingeredeientName = response;
+      this.ingeredeientName = response;
     });
 
+  }
+
+  selectIngeredeientName(inName: string){
+     this.myInput = inName.name;
+     this.data = inName.name;
+      this.ingeredeientName = null;
   }
 
   addCriteria(){
