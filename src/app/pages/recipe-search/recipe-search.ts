@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {HttpClient} from "@angular/common/http";
+import {RecipeListPage} from "../../../pages/recipe-list/recipe-list";
 
 /**
  * Generated class for the RecipeSearchPage page.
@@ -105,20 +106,28 @@ export class RecipeSearchPage {
    }
    else{
      this.message= '';
-    this.findByIngredients(this.selectedValues);
+     this.findByIngredients(this.selectedValues);
+
    }
   }
 
-  findByIngredients(ingredients: any) : void {
+  findByIngredients(ingredients: any) : any {
     // ingredients.toString();
+    let recipeSearched: any = [];
     let url1 : string;
    url1 = this.url + this.selectedValues.toString();
 
       this.httpClient.get(url1).subscribe((response) => {
 
       console.log(response);
-        this.recipes = response;
+        // this.recipes = response;
+        recipeSearched = response;
+
+        if(this.checkForNullAndEmpty(recipeSearched)){
+          this.navCtrl.push(RecipeListPage, { recipeSearched: recipeSearched} );
+        }
     });
+
 
   }
 
