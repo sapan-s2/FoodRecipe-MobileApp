@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {HttpClient} from "@angular/common/http";
-import {RecipeListPage} from "../../../pages/recipe-list/recipe-list";
+import {RecipeListPage} from "../recipe-list/recipe-list";
 
 /**
  * Generated class for the RecipeSearchPage page.

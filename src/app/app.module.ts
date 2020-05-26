@@ -13,7 +13,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {HttpClientModule} from "@angular/common/http";
 import {HttpModule} from '@angular/http';
-import {RecipeListPage} from "../pages/recipe-list/recipe-list";
+import {RecipeListPage} from "./pages/recipe-list/recipe-list";
 
 @NgModule({
   declarations: [
