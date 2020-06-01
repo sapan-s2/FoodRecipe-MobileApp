@@ -14,6 +14,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {HttpClientModule} from "@angular/common/http";
 import {HttpModule} from '@angular/http';
 import {RecipeListPage} from "./pages/recipe-list/recipe-list";
+import {PagesRecipeDetailsPage} from "./pages/pages-recipe-details/pages-recipe-details";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import {RecipeListPage} from "./pages/recipe-list/recipe-list";
     ItemDetailsPage,
     ListPage,
     RecipeSearchPage,
-    RecipeListPage
+    RecipeListPage,
+    PagesRecipeDetailsPage
+
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import {RecipeListPage} from "./pages/recipe-list/recipe-list";
     ItemDetailsPage,
     ListPage,
     RecipeSearchPage,
-    RecipeListPage
+    RecipeListPage,
+    PagesRecipeDetailsPage
 
   ],
   providers: [

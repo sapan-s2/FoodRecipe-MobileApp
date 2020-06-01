@@ -16,7 +16,7 @@
 
 <ion-content>
   <ion-list>
-    <button ion-item *ngFor="let r of recipeSearched" >
+    <button ion-item *ngFor="let r of recipeSearched" (click)="sendRecipeDetails(r)">
       <ion-img src="{{r.image}}" item-left></ion-img>
       {{r.title}}
       <!--<div class="item-note" item-right>-->

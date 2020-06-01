@@ -82,7 +82,7 @@ export class RecipeSearchPage {
 
   }
 
-  checkForNullAndEmpty( data1: string) {
+  public checkForNullAndEmpty( data1: string) {
            return data1 !== undefined && data1 !== null && data1 !== "";
 
          }
