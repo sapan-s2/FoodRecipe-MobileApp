@@ -16,14 +16,14 @@
 
 
 
-<ion-content padding>
-    This is a Recipe Search page
+<ion-content padding >
+    <!--Search for delicious Recipes using custom ingredients-->
 <!--  <ion-searchbar (ionInput)="filterList($event)"-->
 <!--                 [(ngModel)]="supplier"-->
 <!--                 showCancelButton="always"></ion-searchbar>-->
-  <div class="multiSelect">
-    <label>Multiselect with custom ingredients</label>
-    <p> {{message}}</p>
+  <div class="multiSelect" >
+    <label> <b> <i>Search for delicious Recipes using custom ingredients </i></b> </label>
+    <p style="color: #e93a3a"> {{message}}</p>
     <ion-card *ngIf="selectedValues.length !== 0" >
       <ul>
       <!--<div class="row">-->
@@ -38,18 +38,18 @@
     <!--<ion-select [items]="cities2" bindLabel="name" bindValue="id" [multiple]="true" placeholder="Select cities"-->
                <!--[(ngModel)]="selectedCityIds">-->
     <!--</ion-select >-->
-    <ion-toolbar color='primary'>
+    <ion-toolbar class="new-background-color">
 
-    <ion-searchbar  [(ngModel)]="myInput"  (ionInput)="filterList($event)"></ion-searchbar>
+    <ion-searchbar  [(ngModel)]="myInput"  (ionInput)="filterList($event)"> <i class="fa fa-check"></i></ion-searchbar>
       <ul id="myUL">
         <li  *ngFor="let inName of ingeredeientName" (click)="selectIngeredeientName(inName.name)"> {{inName.name}} </li>
 
       </ul>
-    <button ion-button (click)="addCriteria()">
+    <!--<button ion-button (click)="addCriteria()">-->
 
 
 
-      Add  </button>
+      <!--Add  </button>-->
     </ion-toolbar>
 
     <ion-card>

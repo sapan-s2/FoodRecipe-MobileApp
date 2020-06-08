@@ -1,19 +1,19 @@
 <ion-menu [content]="content" type="overlay">
 
   <ion-header>
-    <ion-toolbar>
+    <ion-toolbar style="background-color: orange">
       <ion-title>Pages</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content>
-    <ion-list>
+
+    <ion-list style="background-color: orange">
       <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>
     </ion-list>
   </ion-content>
-
 </ion-menu>
 
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

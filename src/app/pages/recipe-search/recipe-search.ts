@@ -17,9 +17,9 @@ import {RecipeListPage} from "../recipe-list/recipe-list";
 })
 export class RecipeSearchPage {
 
-  selectedValues: any[]=[];
+  selectedValues: any[];
   data: string;
-  myInput: string = "hello";
+  myInput: string ;
   recipes: any= [];
   ingeredeientName: any= [];
   url: string;
@@ -29,6 +29,7 @@ export class RecipeSearchPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public httpClient: HttpClient) {
     // this.searchRecipieProvider = searchRecipieProvider;
+    this.selectedValues = [];
     this.url = 'https://api.spoonacular.com/recipes/findByIngredients?apiKey=58ac03dd183446cfb4417107e519ef02&ingredients=';
     this.ingredientAutoCompleteUrl = 'https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=58ac03dd183446cfb4417107e519ef02&query=';
 
@@ -64,15 +65,18 @@ export class RecipeSearchPage {
      this.myInput = inName;
      this.data = inName;
       this.ingeredeientName = null;
+      this.addCriteria()
   }
 
   addCriteria(){
     this.recipes = [];
-    let len = this.selectedValues.length ;
     var checkForNullAndEmpty = this.checkForNullAndEmpty(this.data);
     if(checkForNullAndEmpty){
-     this.selectedValues[len] = this.data;
-      this.message= '';
+      if(this.checkForNullAndEmpty(this.selectedValues.length)) {
+        let len = this.selectedValues.length
+        this.selectedValues[len] = this.data;
+        this.message = '';
+      }
     }
     else{
       this.message = 'Please Type an ingredient';
@@ -82,7 +86,7 @@ export class RecipeSearchPage {
 
   }
 
-  public checkForNullAndEmpty( data1: string) {
+  public checkForNullAndEmpty( data1: any) {
            return data1 !== undefined && data1 !== null && data1 !== "";
 
          }
@@ -101,7 +105,8 @@ export class RecipeSearchPage {
   }
 
   searchReceipies(){
-   if( this.selectedValues == undefined || this.selectedValues == null){
+    if((!this.checkForNullAndEmpty(this.selectedValues)) || this.selectedValues.length===0){
+   // if( this.selectedValues == undefined || this.selectedValues == null){
      this.message = "Please Add an Ingredient";
    }
    else{

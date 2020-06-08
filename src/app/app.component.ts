@@ -27,7 +27,7 @@ export class MyApp {
     // set our app's pages
     this.pages = [
       { title: 'Recipe Search', component: RecipeSearchPage },
-      { title: 'My Saved Recipes', component: ListPage }
+      // { title: 'My Saved Recipes', component: ListPage }
     ];
   }
 
